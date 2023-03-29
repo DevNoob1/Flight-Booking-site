@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .flight-form {
+            border: 3px solid white;
+            padding: 2%;
+            background-color: white;
+            width: 30%;
+            font-size: 20px;
+            border-radius: 5%;
+            /* margin-bottom: 20px; */
+        }
+
+        #MAIN {
+            background: radial-gradient(1173px at -3.5% -4.8%, rgb(212, 210, 207) 8.4%, rgb(244, 62, 62) 20.6%, rgb(251, 74, 34) 46.7%, rgb(201, 43, 8)) 69.6%, rgb(14, 13, 1) 84.7%);
+
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group input[type="number"] {
+            width: 100%;
+            border: 1px solid red;
+            padding-left: 3%;
+            height: 31px;
+            border-radius: 5px;
+        }
+
+        .form-group button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            margin-bottom: 0%;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #help:hover {
+            box-shadow: 0px 0px 10px red;
+            border-radius: 5%;
+            font-weight: bold;
+        }
+
+        .form-group button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        .where-section {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="MAIN" class="h-[100vh] w-[100%] bg-[red]">
+        <div class="bg-[white] h-[10vh] flex bottom-[50%] justify-between items-center">
+            <div class="text-[red] mx-9 flex justify-between w-[20%] text-[50px] font-extrabold">
+                AirLines
+                <img src="https://cdn-icons-png.flaticon.com/512/4379/4379084.png" alt="" class="py-[2%] h-[10vh]">
+            </div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+            <script>
+                $(function () {
+                    var options = ["Afghanistan",
+                        "Albania",
+                        "Algeria",
+                        "Andorra",
+                        "Angola",
+                        "Antigua and Barbuda",
+                        "Argentina",
+                        "Armenia",
+                        "Australia",
+                        "Austria",
+                        "Azerbaijan",
+                        "Bahamas",
+                        "Bahrain",
+                        "Bangladesh",
+                        "Barbados",
+                        "Belarus",
+                        "Belgium",
+                        "Belize",
+                        "Benin",
+                        "Bhutan",
+                        "Bolivia",
+                        "Bosnia and Herzegovina",
+                        "Botswana",
+                        "Brazil",
+                        "Brunei",
+                        "Bulgaria",
+                        "Burkina Faso",
+                        "Burundi",
+                        "Cabo Verde",
+                        "Cambodia",
+                        "Cameroon",
+                        "Canada",
+                        "Central African Republic",
+                        "Chad",
+                        "Chile",
+                        "China",
+                        "Colombia",
+                        "Comoros",
+                        "Congo, Democratic Republic of the",
+                        "Congo, Republic of the",
+                        "Costa Rica",
+                        "Cote d'Ivoire",
+                        "Croatia",
+                        "Cuba",
+                        "Cyprus",
+                        "Czech Republic",
+                        "Denmark",
+                        "Djibouti",
+                        "Dominica",
+                        "Dominican Republic",
+                        "Ecuador",
+                        "Egypt",
+                        "El Salvador",
+                        "Equatorial Guinea",
+                        "Eritrea",
+                        "Estonia",
+                        "Eswatini",
+                        "Ethiopia",
+                        "Fiji",
+                        "Finland",
+                        "France",
+                        "Gabon",
+                        "Gambia",
+                        "Georgia",
+                        "Germany",
+                        "Ghana",
+                        "Greece",
+                        "Grenada",
+                        "Guatemala",
+                        "Guinea",
+                        "Guinea-Bissau",
+                        "Guyana",
+                        "Haiti",
+                        "Honduras",
+                        "Hungary",
+                        "Iceland",
+                        "India",
+                        "Indonesia",
+                        "Iran",
+                        "Iraq",
+                        "Ireland",
+                        "Israel",
+                        "Italy",
+                        "Jamaica",
+                        "Japan",
+                        "Jordan",
+                        "Kazakhstan",
+                        "Kenya",
+                        "Kiribati",
+                        "Kosovo",
+                        "Kuwait",
+                        "Kyrgyzstan",
+                        "Laos",
+                        "Latvia",
+                        "Lebanon",
+                        "Lesotho",
+                        "Liberia",
+                        "Libya",
+                        "Liechtenstein",
+                        "Lithuania",
+                        "Luxembourg",
+                        "Madagascar",
+                        "Malawi",
+                        "Malaysia",
+                        "Maldives",
+                        "Mali",
+                        "Malta",
+                        "Marshall Islands",
+                        "Mauritania",
+                        "Mauritius",
+                        "Mexico",
+                        "Micronesia",
+                        "Moldova",
+                        "Monaco",
+                        "Mongolia",
+                        "Montenegro",
+                        "Morocco",
+                        "Mozambique",
+                        "Myanmar (Burma)",
+                        "Namibia",
+                        "Nauru",
+                        "Nepal",
+                        "Netherlands",
+                        "New Zealand",
+                        "Nicaragua",
+                        "Niger",
+                        "Nigeria",
+                        "North Korea",
+                        "North Macedonia (formerly Macedonia)",
+                        "Norway",
+                        "Oman",
+                        "Palau",
+                        "Palestine",
+                        "Pan"];
+
+                    $("#from, #to").autocomplete({
+                        source: options
+                    });
+                });
+            </script>
+            <div>
+                <button id="help"
+                    class="border-2 mx-9 w-[10vh] h-[5vh] bg-[red] text-[white] rounded-[15%] border-x-white hover:bg-white hover:text-[red]">
+                    Help</button>
+            </div>
+        </div>
+        <div class="h-[90vh] flex justify-center items-center py-[10%] w-[100%]">
+            <div class="flight-form">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="from">From:</label>
+                        <input type="text" id="from" name="from" required placeholder="From">
+                    </div>
+                    <div class="form-group">
+                        <label for="to">To:</label>
+                        <input type="text" id="to" name="to" required placeholder="Destination">
+                    </div>
+                    <div class="form-group">
+                        <label for="depart">Depart:</label>
+                        <input type="date" id="depart" name="depart" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="return">Return:</label>
+                        <input type="date" id="return" name="return" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adults">Adults:</label>
+                        <input type="number" id="adults" name="adults" min="0" max="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="children">Children:</label>
+                        <input type="number" id="children" name="children" min="0" max="10" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    </script>
+</body>
+
+</html>
